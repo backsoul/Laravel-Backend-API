@@ -17,7 +17,7 @@ class ApiTokenMiddleware
     public function handle(Request $request, Closure $next)
     {
         $token = $request->header('API_TOKEN');
-        if ($token != 'ABCD'){
+        if ($token != 'ABCD123'){
             return response()->json(['message' => 'App key not found'],401);
         }
         return $next($request);
