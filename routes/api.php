@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\FinancesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('finances', [FinancesController::class, 'getAllFinances']);
+Route::get('finance/{id}', [FinancesController::class, 'getFinance']);
+Route::post('finances', [FinancesController::class, 'createFinance']);
+Route::put('finance/{id}', [FinancesController::class, 'updateFinance']);
+Route::delete('finance/{id}',[FinancesController::class, 'deleteFinance']);
