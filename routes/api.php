@@ -13,12 +13,9 @@ use App\Http\Controllers\Api\FinancesController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::get('finances', [FinancesController::class, 'getAllFinances']);
-Route::get('finance/{id}', [FinancesController::class, 'getFinance']);
-Route::post('finances', [FinancesController::class, 'createFinance']);
-Route::put('finance/{id}', [FinancesController::class, 'updateFinance']);
-Route::delete('finance/{id}',[FinancesController::class, 'deleteFinance']);
+    //routes here
+    Route::get('finances', [FinancesController::class, 'getAllFinances']);
+    Route::get('finance/{id}', [FinancesController::class, 'getFinance']);
+    Route::post('finances', [FinancesController::class, 'createFinance']);
+    Route::put('finance/{id}', [FinancesController::class, 'updateFinance']);
+    Route::delete('finance/{id}',[FinancesController::class, 'deleteFinance']);

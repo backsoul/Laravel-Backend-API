@@ -56,13 +56,18 @@ class FinancesController extends Controller
         if(finances::where('id', $id)->exists()) {
           $finance = finances::find($id);
           $finance->delete();
+          $finance->id;
 
-          return response()->json([
-            "message" => "finance deleted"
-          ], 202);
+          return response()->json(
+              array(
+                  'success' => true,
+                  'id' => $finance->id,
+                  'message' => 'se elimino sactifactoriamente.'
+                  )
+              , 200);
         } else {
           return response()->json([
-            "message" => "finance not found"
+            "message" => "error al eliminar la financia."
           ], 404);
         }
       }
